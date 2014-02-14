@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> JavaScript page </TITLE>
+  
+ 
+
+ 
+  
+<script
+ type="text/javascript">
+	 function validate()
+	{
+		var a1=document.f0.uid.value;
+		var a2=document.f0.pass.value;
+        
+        
+	if(a1=="" && a2=="")
+		{
+			alert("fill the mandatory field ");
+			return false;
+
+	    	}
+		else
+		{ 
+			if(a1=="")
+			{
+		 		alert("fill the userid ");
+				document.f0.uid.focus();
+		        	return false;
+			}
+		  
+			else
+			{
+			 	if(a2=="")
+				{
+				 alert("fill the password ");
+				 document.f0.pass.focus();
+		         	return false;
+				}
+				else{return true;}			
+			}			
+		}					
+	}
+</script>
+</HEAD>
+<BODY bgcolor="#00CCCC">
+<center>
+<h1><b><u><font color="#FFFFFF"size="7">WELCOME !!!</font><BR><marquee><font color="#000099"> TO  LOGIN  PAGE</font></marquee></u></b></h1>
+</center>
+
+<form name="f0"  method="post"  onSubmit="return validate()"/>
+<div align="right" >
+<fieldset>
+<b>
+<font color="#000099" size="4">
+Enter Desire Userid:
+<input  type="text"maxlength="20"size="25" name="uid"/><br>
+Enter Password:
+</font><input type="password" maxlength="20"size="25"name="pass"/></b></fieldset>
+<input type="submit" value="login"\>
+</div>
+</form>
+ </BODY>
+</HTML>

@@ -1,0 +1,48 @@
+<html>
+<head>
+
+<h1>My Page</h1>
+
+<script>
+//document.getElementById(demo).innerHTML="Hello";
+//document.getElementById(mydiv).innerHTML="Hey its me";
+function validateform()
+{
+	
+	var x=document.forms["myForm"] ["fname"].value;
+	if (x==null || x=="")
+	{
+		alert("Name must be field");
+		return false;
+	}
+	var y=document.forms["myForm"] ["fmail"].value;
+	var atrt=x.indexOf("@");
+	var dote=x.lastIndexOf(".");
+	if(atrt<1 || dote<atrt+2 || dote+2>=x.length)
+	{
+		alert("Email must be correct");
+		return false;
+	}
+	
+	var filename = document.getElementById("uploader").value;
+
+      var storepath = "G:/image";
+}
+
+</script>
+</head>
+<body>
+<form name="myForm"  onSubmit="return validateform()" method="post" enctype="multipart/form-data">
+First name: <input type="text" name="fname"> <br/>
+Email ID:
+<input type="text" name="fmail">
+<br/>
+Upload File
+<input type="file" name="filename" />
+<input type="button" id="uploader" value="Upload"><br/>
+<input type="submit" value="Submit">
+
+</form>
+</body>
+
+</html>

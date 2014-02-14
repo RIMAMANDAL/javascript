@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demo</title>
+<script language="javascript" >
+
+
+
+function validate() {
+           alert("successfully submitted");
+         var emailError = checkEmail();
+         var radioError = checkRadio();
+          var dropdownError = checkDropdown();
+          var checkboxError = checkCheckbox();
+		  if (emailError==true && radioError==true && dropdownError==true && checkboxError==true )
+		  {
+			  document.frm.submit();
+			  
+		  }
+		  else
+		  {
+			  return false;
+		  }
+   
+}
+function checkEmail()
+{
+var email = document.frm.email.value;
+if(email == "")
+{
+	document.getElementById("email_error").innerHTML ="No Email Address";
+	return false;
+}
+else
+{
+	document.getElementById("email_error").innerHTML ="";
+	return true;
+}
+}
+function checkRadio()
+{
+	var payment="";
+	var len = document.frm.payment.length;
+	var i;
+	for(i=0; i<len; i++)
+	{
+		if(document.frm.payment[i].checked){
+			payment = document.frm.payment[i].value;
+			break;
+		}
+	}
+	if (payment ==""){
+		document.getElementById("radio_error").innerHTML ="No payment option selected";
+		return false;
+	}
+	else{
+		document.getElementById("radio_error").innerHTML ="";
+		return true;
+	}
+}
+ function checkDropdown()
+ {
+	 var chosen="";
+	 var len = document.frm.hear.length;
+	 var i;
+	 for(i=0; i<len; i++)
+	{
+		if(document.frm.hear[i].selected)
+		{
+			chosen = document.frm.hear[i].value;
+		}
+	}
+	if(chosen == "None"){
+		document.getElementById("dropdown_error").innerHTML ="No option selected";
+		return false;
+	}
+	else
+	{
+		document.getElementById("dropdown_error").innerHTML ="";
+		return true;
+	}
+ }
+  function checkcheckbox(){
+	  if(document.frm.terms.checked){
+		document.getElementById("checkbox_error").innerHTML ="";
+		return true;
+	}
+	else
+	{
+		document.getElementById("dropdown_error").innerHTML ="TAC not checked";
+		return false;
+	}
+  }
+</script>
+</head>
+
+<body>
+<form name="frm" method="post" action="">
+<p>
+Email: <input type="text" name="email" value=""  placeholder="Email Address" />
+</p>
+<p>
+Payment Option : <input type="radio" name="payment" value="cc" />Credit Card
+ <input type="radio" name="payment" value="cd" />Debit Card
+ <input type="radio" name="payment" value="cs" />Cash
+</p>
+<p>
+where did you here about us:
+<select name="Here">
+<option value="none">None</option>
+<option value="frnds">Friends</option>
+<option value="tv">TV</option>
+<option value="np">News paper</option>
+</select>
+
+</p>
+
+<p>
+<label for="cb">Terms & Conditions</label>
+<input type="checkbox" name="terms" id="cb" value="TAC" />
+
+</p>
+<p>&nbsp;
+</p>
+<input type="button" value="send" onclick="validate()" />
+</form>
+</body>
+</html>
