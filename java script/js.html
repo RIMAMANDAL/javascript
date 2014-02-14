@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+<script type="text/javascript">
+function sub()
+{
+if(document.getElementById("t1").value == "")
+alert("Please enter your name");
+else if(document.getElementById("t2").value == "")
+alert("Please enter your father's name");
+else if(document.getElementById("t3").value == "")
+alert("Please enter your mother's name");
+else if(document.getElementById("t4").value == "")
+alert("Please enter your details");
+else if(document.getElementById("t5").value == "")
+alert("Please enter your email id");
+else if(document.getElementById("t6").value == "")
+alert("Please enter your phone no");
+else
+alert("Form has been submitted");
+}
+</script>
+</head>
+<body>
+<form>
+<p align="center">
+Name:<input type="text" id="t1"><br><br>
+Father's Name:<input type="text" id="t2"><br><br>
+Mother's Name:<input type="text" id="t3"><br><br>
+About:<textarea rows="2" cols="25" id="t4"></textarea><br><br>
+Email Id:<input type="text" id="t5"><br><br>
+Phone No:<input type="number" id="t6" pattern="[789][0-9]{9}"><br><br>
+Present Address:<input type="text" id="field1"><br><br>
+Is your permanent address equals to present address:<button onclick="document.getElementById('field2').value = document.getElementById('field1').value">Click Here </button><br><br>
+
+Permanent Address:<input type="text" id="field2"><br><br>
+
+<input type="button" value="Submit" onclick="sub()">
+<input type="reset" value="Clear All">
+</p>
+</form>
+</body>
+</html>
